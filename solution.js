@@ -13,12 +13,14 @@ function cityWeather(city) {
     const promise = new Promise(async (resolve, reject) => {
         const response = await axios.get(`${URL}q=${city}`);
 
-        const { data: requestedCity } = response;
+        const { data: responseData } = response;
 
-        if (requestedCity.status === 404) {
+        if (responseData.status === 404) {
             reject(new Error('city not found'));
-        } else if (requestedCity.status === 200) {
-            resolve(requestedCity);
+        } else if (responseData.status === 200) {
+            const { main: cityData } = responseData;
+
+            resolve(cityData);
         }
     });
 
@@ -27,6 +29,6 @@ function cityWeather(city) {
 
 // 'city not found'
 
-cityWeather('cali')
+cityWeather('london')
     .then((data) => console.log(data))
     .catch((error) => console.log(error));
