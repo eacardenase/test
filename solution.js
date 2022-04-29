@@ -29,8 +29,4 @@ function cityWeather(city) {
     return promise;
 }
 
-// cityWeather('boston')
-//     .then((data) => console.log(data))
-//     .catch((error) => console.log(error));
-
 module.exports = cityWeather;
