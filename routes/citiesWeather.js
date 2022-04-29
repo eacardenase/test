@@ -3,7 +3,7 @@ const express = require('express');
 const Router = express.Router();
 
 Router.get('/', (req, res) => {
-    const cityRequested = req.query.q;
+    const cityRequested = req.query.q.toLocaleLowerCase();
 
     const cities = require('../cities');
 

@@ -18,7 +18,9 @@ function cityWeather(city) {
         if (responseData.status === 404) {
             reject(new Error('city not found'));
         } else if (responseData.status === 200) {
-            const { main: cityData } = responseData;
+            const {
+                main: { data: cityData },
+            } = responseData;
 
             resolve(cityData);
         }
@@ -27,8 +29,8 @@ function cityWeather(city) {
     return promise;
 }
 
-// 'city not found'
+// cityWeather('boston')
+//     .then((data) => console.log(data))
+//     .catch((error) => console.log(error));
 
-cityWeather('london')
-    .then((data) => console.log(data))
-    .catch((error) => console.log(error));
+module.exports = cityWeather;

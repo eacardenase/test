@@ -1,4 +1,4 @@
-GET http://localhost:3000/city?q=london
+GET http://localhost:3000/city?q=LONDON
 
 ###
 
